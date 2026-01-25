@@ -124,18 +124,18 @@ mechanism for file systems.
 to specific users and group to particular directories and file
 Use of ACL
 
-Think of a scenario in which a particular user is not a member of group created
+<pre> Think of a scenario in which a particular user is not a member of group created
 by you but still you want to give some read or write access, how can you do it
 without making user a member of group, here comes in picture Access Control
-Lists, ACL helps us to do this trick.
+Lists, ACL helps us to do this trick.</pre>
 
-⦁	For check ACL Permission:
- - getfacl < file/dir>
-⦁	For set ACL permission to user
- - setfacl -m u:ramu:rwx /dev
-⦁	remove ACL
- - setfacl -x u:ramu: /dev
-⦁	For set ACL permission to group
- - setfacl -m g:devops:rwx /dev
-⦁	For remove all ACL permissions
- - setfacl -b /dev
+* For check ACL permission:
+  - getfacl <file / dir>
+* For set ACL permission to user:
+  - 'setfacl -m u:ramu:rwx /dev'
+* remove ACL:
+  - 'setfacl -x u:ramu: /dev'
+* For set ACL permission to group:
+  - 'setfacl -m g:devops:rwx /dev'
+* For remove all ACL permissions:
+  - 'setfacl -b /dev'
