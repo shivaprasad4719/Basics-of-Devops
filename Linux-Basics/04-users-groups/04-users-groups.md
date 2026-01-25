@@ -17,6 +17,7 @@
 - gpasswd -A rakesh devops -> make group admin
 
 # 👤 useradd
+<pre>
 -m → create home directory
 -d → custom home directory
 -s → login shell
@@ -26,8 +27,9 @@
 -c → user comment
 -e → account expiry
 -r → system user
-
+</pre>
 # 👤 usermod
+<pre>
 -a → append group
 -G → add secondary group
 -g → change primary group
@@ -37,34 +39,35 @@
 -L → lock user
 -U → unlock user
 -e → change expiry
-
+</pre>
 # 👤 userdel
--r → delete home directory
+* -r → delete home directory
 
 # 🔐 passwd
+<pre>
 -l → lock password
 -u → unlock password
 -d → delete password
 -e → expire password
-
+</pre>
 # 👥 groupadd
--g → group ID
--r → system group
+* -g → group ID
+* -r → system group
 
 # 👥 groupmod
--g → change group ID
--n → rename group
+* -g → change group ID
+* -n → rename group
 
 # 👥 gpasswd
--a → add user to group
--d → remove user
--A → group admin
--M → group members
+* -a → add user to group
+* -d → remove user
+* -A → group admin
+* -M → group members
 
 # 🔍 id
--u → show UID
--g → show GID
--G → show groups
+* -u → show UID
+* -g → show GID
+* -G → show groups
   
 # Important files:
 - /etc/passwd
