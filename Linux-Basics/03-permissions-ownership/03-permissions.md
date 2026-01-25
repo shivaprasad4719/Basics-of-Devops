@@ -139,3 +139,41 @@ Lists, ACL helps us to do this trick.</pre>
   - 'setfacl -m g:devops:rwx /dev'
 * For remove all ACL permissions:
   - 'setfacl -b /dev'
+
+---
+    
+# 📌 ACL Entry Types
+
+| Entry     | Meaning                    |
+| --------- | -------------------------- |
+| `u::`     | Owner permissions          |
+| `u:john:` | Named user                 |
+| `g::`     | Group permissions          |
+| `g:dev:`  | Named group                |
+| `o::`     | Others                     |
+| `m::`     | Mask (max effective perms) |
+
+---
+
+# 🔐 setfacl Options Table
+
+| Option      | Meaning        | Description                        | Example                                       |
+| ----------- | -------------- | ---------------------------------- | --------------------------------------------- |
+| `-m`        | Modify         | Add or modify an ACL entry         | `setfacl -m u:john:rw file.txt`               |
+| `-x`        | Remove entry   | Remove a specific ACL entry        | `setfacl -x u:john file.txt`                  |
+| `-b`        | Remove all     | Remove all extended ACLs           | `setfacl -b file.txt`                         |
+| `-k`        | Remove default | Remove default ACLs from directory | `setfacl -k /data`                            |
+| `-d`        | Default ACL    | Set default ACL for directories    | `setfacl -d -m g:dev:rwx /data`               |
+| `-R`        | Recursive      | Apply ACLs recursively             | `setfacl -R -m u:john:rx /project`            |
+| `--set`     | Replace ACL    | Replace entire ACL                 | `setfacl --set u::rw-,g::r--,o::--- file.txt` |
+| `--mask`    | ACL mask       | Set max effective permissions      | `setfacl --mask=rw file.txt`                  |
+| `--restore` | Restore ACLs   | Restore                            |                                               |
+
+---
+
+# 📄 getfacl Options Table
+| Option             | Meaning       | Description                 | Example                             |
+| ------------------ | ------------- | --------------------------- | ----------------------------------- |
+| `-p`               | Physical path | Show full path, no comments | `getfacl -p file.txt`               |
+| `-R`               | Recursive     | Show ACLs recursively       | `getfacl -R /project`               |
+| `--absolute-names` | Absolute path | Do not strip leading `/`    | `getfacl --absolute-names file.txt` |
