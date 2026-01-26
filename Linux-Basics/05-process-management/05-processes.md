@@ -117,7 +117,22 @@ sudo apt install htop
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print 100 - $8}')
 
 ```
+# Core tools you should know:
+```
 
+
+| Tool     | What it does                 |
+| -------- | ---------------------------- |
+| **grep** | Searches for matching text   |
+| **awk**  | Extracts & processes columns |
+| **sed**  | Edits/replaces text          |
+| **cut**  | Cuts specific columns        |
+| **sort** | Sorts lines                  |
+| **uniq** | Removes duplicates           |
+| **wc**   | Counts lines/words/chars     |
+| **tr**   | Translate characters         |
+
+```
 ---
 
 ## 🔹 Killing Processes
