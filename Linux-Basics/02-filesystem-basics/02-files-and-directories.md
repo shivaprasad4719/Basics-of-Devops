@@ -72,3 +72,42 @@ Here the file/dir is moving to the destination dir birds.
 - **mv tree birds**
 Here tree replacing the birds.
 
+---
+
+# grep Options Table
+
+```
+| Option | Meaning          | Example                    |                |
+| ------ | ---------------- | -------------------------- | -------------- |
+| `-i`   | Ignore case      | `grep -i error app.log`    |                |
+| `-v`   | Exclude match    | `grep -v root /etc/passwd` |                |
+| `-n`   | Show line number | `grep -n fail app.log`     |                |
+| `-r`   | Recursive search | `grep -r LOG_FILE .`       |                |
+| `-w`   | Whole word match | `grep -w cpu app.log`      |                |
+| `-c`   | Count matches    | `grep -c error app.log`    |                |
+| `-l`   | File names only  | `grep -l error *.log`      |                |
+| `-E`   | Extended regex   | `grep -E "error            | warn" app.log` |
+| `-o`   | Print match only | `grep -o "[0-9]\+" file`   |                |
+| `-A n` | After context    | `grep -A2 error app.log`   |                |
+| `-B n` | Before context   | `grep -B2 error app.log`   |                |
+| `-C n` | Context lines    | `grep -C2 error app.log`   |                |
+
+```
+
+# awk Options & Variables Table
+
+```
+| Option / Variable | Meaning          | Example                            |                   |
+| ----------------- | ---------------- | ---------------------------------- | ----------------- |
+| `-F`              | Field separator  | `awk -F: '{print $1}' /etc/passwd` |                   |
+| `-v`              | Pass variable    | `awk -v x=80 '$5>x' file`          |                   |
+| `NR`              | Line number      | `awk 'NR==1' file`                 |                   |
+| `NF`              | Number of fields | `awk '{print NF}' file`            |                   |
+| `$0`              | Full line        | `awk '{print $0}' file`            |                   |
+| `$1…$NF`          | Fields           | `awk '{print $1,$3}' file`         |                   |
+| `FS`              | Input separator  | `awk 'BEGIN{FS=":"}{print $1}'`    |                   |
+| `OFS`             | Output separator | `awk 'BEGIN{OFS="                  | "}{print $1,$2}'` |
+| `BEGIN`           | Before input     | `awk 'BEGIN{print "start"}'`       |                   |
+| `END`             | After input      | `awk '{sum+=$1} END{print sum}'`   |                   |
+
+```
