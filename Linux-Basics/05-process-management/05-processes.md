@@ -19,12 +19,31 @@ Displays a snapshot of **all running processes** in the system.
 ```bash
 ps aux
 ```
+<pre>
+
+ps
+
+  
+| Option     | Meaning                  |
+| ---------- | ------------------------ |
+| **-e**     | All processes            |
+| **-f**     | Full format              |
+| **-o**     | Custom output            |
+| **-u**     | User-oriented            |
+| **-a**     | Processes with terminal  |
+| **-x**     | Include no-TTY processes |
+| **-p**     | Specific PID             |
+| **--sort** | Sort output              |
+| **-C**     | By command name          |
+| **-L**     | Show threads             |
+
+</pre>
 
 **Options explained:**
-
-* `a` → Show processes for all users
-* `u` → User-oriented output
-* `x` → Include processes without a terminal
+* ps aux       # BSD style (very common)
+  - `a` → Show processes for all users
+  - `u` → User-oriented output
+  - `x` → Include processes without a terminal
 
 **Important columns:**
 
@@ -33,6 +52,22 @@ ps aux
 * `%CPU` – CPU usage
 * `%MEM` – Memory usage
 * `COMMAND` – Command that started the process
+* `PPID` – Parent PID
+* `STAT` – Process state
+
+---
+
+# Process states (very important)
+
+| State | Meaning                         |
+| ----- | ------------------------------- |
+| R     | Running                         |
+| S     | Sleeping                        |
+| D     | Uninterruptible sleep (IO wait) |
+| T     | Stopped                         |
+| Z     | Zombie                          |
+| I     | Idle kernel thread              |
+
 
 ---
 
@@ -51,6 +86,10 @@ top
 * `q` → Quit
 * `k` → Kill a process by PID
 
+```
+%Cpu(s): us sy ni id wa hi si st
+         1  2  3  4  5  6  7  8
+```
 ---
 
 ### `htop`
@@ -68,10 +107,15 @@ htop
 * Tree view of processes
 * Easy process termination
 
-📦 Install `htop`:
+# 📦 Install `htop`:
 
 ```bash
 sudo apt install htop
+```
+
+```
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print 100 - $8}')
+
 ```
 
 ---
@@ -88,8 +132,10 @@ kill PID
 
 **Common signals:**
 
-* `kill -15 PID` → Graceful termination (default)
-* `kill -9 PID` → Force kill
+* `kill -15 PID` → 'SIGTERM' Graceful termination (default)
+* `kill -9 PID` → 'SIGKILL'Force kill
+* `kill -2 PID` → 'SIGINT' Interrupt
+* `kill -1 PID` → 'SIGHUP' 
 
 ---
 
